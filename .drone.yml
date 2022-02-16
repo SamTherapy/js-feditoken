@@ -3,24 +3,39 @@ type: docker
 name: default
 
 steps:
-- name: lint
+
+- name: dependencies
   image: node
   commands:
   - yarn
+
+- name: lint
+  image: node
+  depends_on:
+  - dependencies
+  commands:
   - yarn lint
 
 - name: build
   image: node
+  depends_on:
+  - dependencies
   commands:
   - yarn build
 
 - name: test
   image: node
+  depends_on:
+  - build
   commands: 
    - yarn test
 
 - name: package
   image: node
+  depends_on:
+  - lint
+  - build
+  - test
   commands:
   - yarn package
   when:
@@ -40,3 +55,6 @@ steps:
     checksum:
       - md5
       - sha1
+  when:
+    event: 
+      - tag
