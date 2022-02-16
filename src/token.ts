@@ -33,7 +33,7 @@ if (args.help) {
             optionList: optionDefinitions
         },
         {
-            content: "Project home: {underline https://git.froth.zone/Sam/fediverse-imagebot}"
+            content: "Project home: {underline https://git.froth.zone/Sam/js-feditoken}"
         }
     ]);
     console.log(usage);
@@ -48,7 +48,7 @@ if (args.verbose) {
 const instance: string = question("Instance URL: ");
 callDetector(instance).then(type => {
     const client = generator(type, instance);
-    client.registerApp("Node Imagebot", { website: "https://git.froth.zone/Sam/fediverse-imagebot" })
+    client.registerApp("JS-Token", { website: "https://git.froth.zone/Sam/js-feditoken" })
         .then((appData) => {
             const clientId = appData.clientId;
             const clientSecret = appData.clientSecret;

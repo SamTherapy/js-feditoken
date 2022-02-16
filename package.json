@@ -23,7 +23,7 @@
     "bin": "dist/token.js",
     "scripts": {
         "build": "yarn clean && tsc",
-        "package": "yarn build && pkg . -o dist/feditoken",
+        "package": "pkg dist/token.js -t node16-linux-x64,node16-macos-x64,node16-win-x64 -o dist/feditoken -C Gzip",
         "clean": "rm -rf dist",
         "token": "node ./dist/token.js",
         "lint": "eslint --ext .ts src",
@@ -31,10 +31,5 @@
     },
     "repository": "https://git.froth.zone/Sam/js-feditoken",
     "author": "Sam Therapy <sam@samtherapy.net>",
-    "license": "MIT",
-    "pkg": {
-        "scripts": "dist/*.js",
-        "targets": ["node16-linux-x64", "node16-macos-x64", "node16-win-x64"],
-        "outputPath": "dist"
-    }
+    "license": "MIT"
 }
