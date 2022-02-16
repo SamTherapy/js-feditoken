@@ -1,0 +1,42 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: lint
+  image: node
+  commands:
+  - yarn
+  - yarn lint
+
+- name: build
+  image: node
+  commands:
+  - yarn build
+
+- name: test
+  image: node
+  commands: 
+   - yarn test
+
+- name: package
+  image: node
+  commands:
+  - yarn package
+  when:
+    event: 
+    - tag
+
+- name: Release
+  image: plugins/gitea-release
+  depends_on:
+    - package
+  settings:
+    api_key: 
+      from_secret: release_api_key
+    base_url: https://git.froth.zone
+    files:
+      - dist/feditoken-*
+    checksum:
+      - md5
+      - sha1
