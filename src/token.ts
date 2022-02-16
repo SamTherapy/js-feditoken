@@ -45,7 +45,7 @@ if (args.verbose) {
     console.log();
 }
 
-const instance: string = question("Instance URL: ");
+const instance: string = "https://" + question("Instance URL: https://");
 callDetector(instance).then(type => {
     const client = generator(type, instance);
     client.registerApp("JS-Token", { website: "https://git.froth.zone/Sam/js-feditoken" })
