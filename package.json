@@ -23,11 +23,11 @@
     "bin": "dist/token.js",
     "scripts": {
         "build": "yarn clean && tsc",
-        "package": "pkg dist/token.js -t node16-linux-x64,node16-macos-x64,node16-win-x64 -o dist/feditoken -C Gzip",
         "clean": "rm -rf dist",
-        "token": "node ./dist/token.js",
         "lint": "eslint --ext .ts src",
-        "test": "echo \"No tests yet!\" && exit 0"
+        "package": "pkg dist/token.js -t node16-linux-x64,node16-macos-x64,node16-win-x64 -o dist/feditoken-x64 -C Gzip",
+        "test": "echo \"No tests yet!\" && exit 0",
+        "token": "node ./dist/token.js"
     },
     "repository": "https://git.froth.zone/Sam/js-feditoken",
     "author": "Sam Therapy <sam@samtherapy.net>",

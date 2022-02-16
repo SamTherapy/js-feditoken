@@ -52,9 +52,6 @@ steps:
     base_url: https://git.froth.zone
     files:
       - dist/feditoken-*
-    checksum:
-      - md5
-      - sha1
   when:
     event: 
       - tag
