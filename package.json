@@ -17,7 +17,7 @@
         "pkg": "^5.5.2"
     },
     "name": "feditoken-js",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Token Generation for the fediverse (Pleroma, Mastodon, Misskey)",
     "main": "dist/token.js",
     "bin": "dist/token.js",

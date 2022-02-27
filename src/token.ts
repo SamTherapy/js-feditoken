@@ -41,14 +41,17 @@ if (args.help) {
 }
 
 if (args.verbose) {
-    console.log("Running in verbose mode.");
-    console.log();
+    console.log("Running in verbose mode.\n");
 }
 
-const instance: string = "https://" + question("Instance URL: https://");
+const instance = `https://${question("Instance URL: https://")}`;
 callDetector(instance).then(type => {
     const client = generator(type, instance);
-    client.registerApp("JS-Token", { website: "https://git.froth.zone/Sam/js-feditoken" })
+    console.log("What would you like the app name to be? (default: JS-FediToken)");
+    const appName = question("App Name: ") || "JS-FediToken";
+    console.log("What would you like the app's website to be? (default: https://git.froth.zone/Sam/js-feditoken)");
+    const appWebsite = question("App Website: ") || "https://git.froth.zone/Sam/js-feditoken";
+    client.registerApp(appName, { website: appWebsite })
         .then((appData) => {
             const clientId = appData.clientId;
             const clientSecret = appData.clientSecret;
@@ -79,17 +82,19 @@ callDetector(instance).then(type => {
                 })
                 .catch((err: Error) => { // catch for fetchAccessToken
                     console.error("Access Token fetch failed.");
-                    console.error("Run with -v to see the full error.");
                     if (args.verbose)
                         console.error(err);
+                    else
+                        console.error("Run with -v to see the full error.");
                     exit(1);
                 });
         })
         .catch((err: Error) => { // catch for registerApp
             console.error("App registration failure!");
-            console.error("Run with -v to see the full error.");
             if (args.verbose)
                 console.error(err);
+            else
+                console.error("Run with -v to see the full error.");
             exit(1);
         });
 });
@@ -98,9 +103,10 @@ async function callDetector(instance: string) {
     const type = await detector(instance).catch((err) => {
         console.error("This does not seem to be a valid instance!");
         console.error("Supported instance types: Mastodon, Misskey, Pleroma");
-        console.error("Run with -v to see the full error.");
         if (args.verbose)
             console.error(err);
+        else
+            console.error("Run with -v to see the full error.");
         exit(1);
     });
     if (args.verbose)
