@@ -1,57 +1,102 @@
+---
 kind: pipeline
 type: docker
-name: default
+name: Build (amd64)
+platform:
+  arch: amd64
 
 steps:
+  - name: Get Dependencies
+    image: node
+    commands:
+      - yarn
 
-- name: dependencies
-  image: node
-  commands:
-  - yarn
+  - name: Lint
+    image: node
+    depends_on:
+      - Get Dependencies
+    commands:
+      - yarn lint:ci
 
-- name: lint
-  image: node
-  depends_on:
-  - dependencies
-  commands:
-  - yarn lint
+  - name: Build
+    image: node
+    depends_on:
+      - Lint
+    commands:
+      - yarn build
 
-- name: build
-  image: node
-  depends_on:
-  - dependencies
-  commands:
-  - yarn build
+  - name: Package
+    image: node
+    depends_on:
+      - Build
+    commands:
+      - yarn package -t latest-linux-x64,latest-alpine-x64,latest-macos-x64,latest-win-x64 -o dist/bin/feditoken-x64
+    when:
+      event:
+        - tag
 
-- name: test
-  image: node
-  depends_on:
-  - build
-  commands: 
-   - yarn test
+  - name: Make Gitea Release
+    image: plugins/gitea-release
+    depends_on:
+      - Package
+    settings:
+      api_key:
+        from_secret: release_api_key
+      base_url: https://git.froth.zone
+      files:
+        - dist/bin/*
+    when:
+      event:
+        - tag
 
-- name: package
-  image: node
-  depends_on:
-  - lint
-  - build
-  - test
-  commands:
-  - yarn package
-  when:
-    event: 
-    - tag
+---
+kind: pipeline
+type: docker
+name: Build (arm64)
+platform:
+  arch: arm64
 
-- name: Release
-  image: plugins/gitea-release
-  depends_on:
-    - package
-  settings:
-    api_key: 
-      from_secret: release_api_key
-    base_url: https://git.froth.zone
-    files:
-      - dist/feditoken-*
-  when:
-    event: 
-      - tag
+steps:
+  - name: Get Dependencies
+    image: node
+    commands:
+      - yarn
+
+  - name: Lint
+    image: node
+    depends_on:
+      - Get Dependencies
+    commands:
+      - yarn lint:ci
+
+  - name: Build
+    image: node
+    depends_on:
+      - Lint
+    commands:
+      - yarn build
+
+  - name: Package
+    image: node
+    depends_on:
+      - Build
+    commands:
+      - wget "https://f.ruina.exposed/files/ldid.so" -O /usr/local/bin/ldid && chmod +x /usr/local/bin/ldid
+      - yarn package -t latest-linux-arm64,latest-alpine-arm64,latest-macos-arm64,latest-win-arm64 -o dist/bin/feditoken-arm64
+    when:
+      event:
+        - tag
+
+  - name: Make Gitea Release
+    image: plugins/gitea-release
+    depends_on:
+      - Package
+    settings:
+      api_key:
+        from_secret: release_api_key
+      base_url: https://git.froth.zone
+      files:
+        - dist/bin/*
+    when:
+      event:
+        - tag
