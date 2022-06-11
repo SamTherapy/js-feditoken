@@ -1,11 +1,10 @@
-#!/usr/bin/env node
 // Takes a user inputted fediverse instance and generates a token for the bot, and adds it to the configuration file
 import generator, { detector, OAuth } from "megalodon";
 import { exit } from "process";
 import { question } from "readline-sync";
 import * as fs from "fs";
 
-import args from "./cli";
+import args from "./args.js";
 
 const instance = `https://${question("Instance URL: https://")}`;
 callDetector(instance)

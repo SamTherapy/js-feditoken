@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import commandLineArgs from "command-line-args";
 import commandLineUsage from "command-line-usage";
 import { exit } from "process";

@@ -36,6 +36,6 @@
   },
   "repository": "https://git.froth.zone/Sam/js-feditoken",
   "author": "Sam Therapy <sam@samtherapy.net>",
-  "license": "Unlicense",
+  "license": "0BSD",
   "packageManager": "yarn@3.2.1"
 }
