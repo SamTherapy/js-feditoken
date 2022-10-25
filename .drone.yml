@@ -9,28 +9,29 @@ steps:
   - name: Get Dependencies
     image: node
     commands:
-      - yarn
+      - curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - pnpm i
 
   - name: Lint
     image: node
     depends_on:
       - Get Dependencies
     commands:
-      - yarn lint:ci
+      - npm run lint:ci
 
   - name: Build
     image: node
     depends_on:
       - Lint
     commands:
-      - yarn build
+      - npm run build
 
   - name: Package
     image: node
     depends_on:
       - Build
     commands:
-      - yarn package -t latest-linux-x64,latest-alpine-x64,latest-macos-x64,latest-win-x64 -o dist/bin/feditoken-x64
+      - npm run package -t latest-linux-x64,latest-alpine-x64,latest-macos-x64,latest-win-x64 -o dist/bin/feditoken-x64
     when:
       event:
         - tag
@@ -60,21 +61,22 @@ steps:
   - name: Get Dependencies
     image: node
     commands:
-      - yarn
+      - curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7
+      - pnpm i
 
   - name: Lint
     image: node
     depends_on:
       - Get Dependencies
     commands:
-      - yarn lint:ci
+      - npm run lint:ci
 
   - name: Build
     image: node
     depends_on:
       - Lint
     commands:
-      - yarn build
+      - npm run build
 
   - name: Package
     image: node
@@ -82,7 +84,7 @@ steps:
       - Build
     commands:
       - wget "https://f.ruina.exposed/files/ldid.so" -O /usr/local/bin/ldid && chmod +x /usr/local/bin/ldid
-      - yarn package -t latest-linux-arm64,latest-alpine-arm64,latest-macos-arm64,latest-win-arm64 -o dist/bin/feditoken-arm64
+      - npm run package latest-linux-arm64,latest-alpine-arm64,latest-macos-arm64,latest-win-arm64 -o dist/bin/feditoken-arm64
     when:
       event:
         - tag

@@ -1,6 +1,7 @@
 import commandLineArgs from "command-line-args";
 import commandLineUsage from "command-line-usage";
-import { exit } from "process";
+import { exit } from "node:process";
+
 const optionDefinitions = [
   {
     name: "help",
@@ -21,7 +22,7 @@ if (args.help) {
     {
       header: "Fediverse Token Grabber",
       content:
-        "Grabs Masotodon, Pleroma or Misskey tokens for your bots to use.",
+        "Grabs Mastodon, Pleroma or Misskey tokens for your bots to use.",
     },
     {
       header: "Options",
