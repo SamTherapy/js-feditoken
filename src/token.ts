@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // Takes a user inputted fediverse instance and generates a token for the bot, and adds it to the configuration file
 import generator, { detector } from "megalodon";
 
