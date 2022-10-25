@@ -14,17 +14,17 @@ Download prebuilt binaries from [here](https://git.froth.zone/sam/js-feditoken/r
 
 1. You need to have `npm` and `nodejs` installed.
 
-- Node 15 or greater is required.
+- Node 16 or greater is required.
 
-2. Install `yarn`: \
+2. Install `pnpm`: \
    `corepack enable` \
-    Check https://yarnpkg.com/getting-started/install for more information.
+    Check <https://pnpm.io/installation> for more information.
 
 3. Clone the repository: \
    `git clone https://git.froth.zone/sam/js-feditoken.git`
 
 4. Install dependencies: \
-   `yarn`
+   `pnpm i`
 
 5. Build: \
-   `yarn build`
+   `pnpm run build`
