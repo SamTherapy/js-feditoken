@@ -16,7 +16,7 @@
     "prettier": "2.7.1",
     "typescript": "4.8.4"
   },
-  "name": "feditoken",
+  "name": "@froth/feditoken",
   "version": "1.2.1",
   "description": "Token Generation for the fediverse (Pleroma, Mastodon, Misskey)",
   "main": "dist/token.js",
@@ -29,9 +29,9 @@
     "package": "pkg . -C Gzip",
     "test": "echo \"No tests yet!\" && exit 0",
     "token": "node ./dist/token.js",
-    "prepublishOnly": "pnpm build"
+    "prepublishOnly": "npm run build"
   },
-  "repository": "https://git.froth.zone/Sam/js-feditoken",
+  "repository": "https://git.froth.zone/sam/js-feditoken",
   "author": "Sam Therapy <sam@samtherapy.net>",
   "license": "0BSD",
   "files": [
