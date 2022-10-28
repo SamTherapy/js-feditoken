@@ -24,8 +24,8 @@
   "scripts": {
     "build": "tsc -b",
     "clean": "tsc -b --clean",
-    "lint": "eslint --ext .ts ./src --fix && prettier --write ./src",
-    "lint:ci": "eslint --ext .ts,.js ./src && prettier ./src --check",
+    "lint": "eslint --ext .ts ./src --fix && prettier --no-semi --write ./src",
+    "lint:ci": "eslint --ext .ts,.js ./src && prettier --no-semi --check ./src",
     "package": "pkg . -C Gzip",
     "test": "echo \"No tests yet!\" && exit 0",
     "token": "node ./dist/token.js",

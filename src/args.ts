@@ -1,6 +1,6 @@
-import commandLineArgs from "command-line-args";
-import commandLineUsage from "command-line-usage";
-import { exit } from "node:process";
+import commandLineArgs from "command-line-args"
+import commandLineUsage from "command-line-usage"
+import { exit } from "node:process"
 
 const optionDefinitions = [
   {
@@ -15,8 +15,8 @@ const optionDefinitions = [
     alias: "v",
     description: "Print debugging output.",
   },
-];
-const args = commandLineArgs(optionDefinitions);
+]
+const args = commandLineArgs(optionDefinitions)
 if (args.help) {
   const usage = commandLineUsage([
     {
@@ -32,13 +32,13 @@ if (args.help) {
       content:
         "Project home: {underline https://git.froth.zone/sam/js-feditoken}",
     },
-  ]);
-  console.log(usage);
-  exit(0);
+  ])
+  console.log(usage)
+  exit(0)
 }
 
 if (args.verbose) {
-  console.log("Running in verbose mode.\n");
+  console.log("Running in verbose mode.\n")
 }
 
-export default args;
+export default args
