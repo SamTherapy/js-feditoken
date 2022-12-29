@@ -8,7 +8,27 @@ Compatible with Mastodon, Misskey, and Pleroma.
 
 ## Usage
 
-Download prebuilt binaries from [here](https://git.froth.zone/sam/js-feditoken/releases/latest) (currently supports x86_64 and arm64 on Linux [glibc or musl], macOS and Windows), or build from source.
+Download prebuilt binaries from [here](https://git.froth.zone/sam/js-feditoken/releases/latest) (currently supports x86_64 and arm64 on Linux [glibc or musl], macOS and Windows), download from NPM, or build from source.
+
+### NPM
+
+1. Set up using the [Gitea registry](https://git.froth.zone/sam/fediverse-imagebot/packages)
+
+   ```sh
+   npm config set @froth:registry https://git.froth.zone/api/packages/sam/npm/
+   ```
+
+2. After setting up the registry, either run it once
+
+   ```sh
+   npx --package=@froth/feditoken feditoken
+   ```
+
+   or install globally
+
+   ```sh
+   npm i -g @froth/feditoken
+   ```
 
 ### Running from Source
 
