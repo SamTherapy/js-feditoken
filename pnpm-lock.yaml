@@ -10,7 +10,7 @@ specifiers:
   eslint: 8.30.0
   eslint-config-prettier: 8.5.0
   eslint-plugin-prettier: 4.2.1
-  megalodon: 5.0.4
+  megalodon: 5.0.5
   pkg: 5.8.0
   prettier: 2.8.1
   typescript: 4.9.4
@@ -18,7 +18,7 @@ specifiers:
 dependencies:
   command-line-args: 5.2.1
   command-line-usage: 6.1.3
-  megalodon: 5.0.4
+  megalodon: 5.0.5
 
 devDependencies:
   '@types/command-line-args': 5.2.0
@@ -1185,8 +1185,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /megalodon/5.0.4:
-    resolution: {integrity: sha512-mys03A3vFAwuj/7KrAytk2kIz3lc02DbLSjDF/lxYf1BDqGGA2lwAqgYwws194flyvhZbLiUDzZ73KuZxHy6GQ==}
+  /megalodon/5.0.5:
+    resolution: {integrity: sha512-8pQf9N1k7g41b83k+EIyhpV8Vr2sipcWsaIvtujBYKFyOCmkplGJCm+54e9Us0b5A4Q9pPue3wGtQuYwBOYpFg==}
     engines: {node: '>=15.0.0'}
     dependencies:
       '@types/oauth': 0.9.1
