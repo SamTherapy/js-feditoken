@@ -10,7 +10,7 @@ specifiers:
   eslint: 8.32.0
   eslint-config-prettier: 8.6.0
   eslint-plugin-prettier: 4.2.1
-  megalodon: 5.0.6
+  megalodon: 5.1.0
   pkg: 5.8.0
   prettier: 2.8.3
   typescript: 4.9.4
@@ -18,7 +18,7 @@ specifiers:
 dependencies:
   command-line-args: 5.2.1
   command-line-usage: 6.1.3
-  megalodon: 5.0.6
+  megalodon: 5.1.0
 
 devDependencies:
   '@types/command-line-args': 5.2.0
@@ -178,8 +178,8 @@ packages:
     resolution: {integrity: sha512-WwA1MW0++RfXmCr12xeYOOC5baSC9mSb0ZqCquFzKhcoF4TvHu5MKOuXsncgZcpVFhB1pXd5hZmM0ryAoCp12A==}
     dev: true
 
-  /@types/ws/8.5.3:
-    resolution: {integrity: sha512-6YOoWjruKj1uLf3INHH7D3qTXwFfEsg1kf3c0uDdSBJwfa/llkwIjrAGV7j7mVgGNbzTQ3HiHKKDXl6bJPD97w==}
+  /@types/ws/8.5.4:
+    resolution: {integrity: sha512-zdQDHKUgcX/zBc4GrwsE/7dVdAD8JR4EuiAXiiUhhfyIJXXb2+PrGshFyeXWQPMmmZ2XxgaqclgpIC7eTXc1mg==}
     dependencies:
       '@types/node': 18.11.5
     dev: false
@@ -1185,12 +1185,12 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /megalodon/5.0.6:
-    resolution: {integrity: sha512-Tt27g71M852mw14LvCEDgOeIEoP6tHRVRDJMxl0BYVGr/IpYC0Zpd5M3ql0teV3JL8Sl5kSAI2jt0mYzpsuilg==}
+  /megalodon/5.1.0:
+    resolution: {integrity: sha512-UPqVnsQNwQViJ2byxOfVZHj7NAYVVNBCNX2Y5E6gpgaMBodJR6gWvbCe9QeoV5/PoCbtlc3nwA1i/0ZKaBXZLA==}
     engines: {node: '>=15.0.0'}
     dependencies:
       '@types/oauth': 0.9.1
-      '@types/ws': 8.5.3
+      '@types/ws': 8.5.4
       axios: 1.2.2
       dayjs: 1.11.7
       form-data: 4.0.0
@@ -1201,7 +1201,7 @@ packages:
       socks-proxy-agent: 7.0.0
       typescript: 4.9.4
       uuid: 9.0.0
-      ws: 8.5.0
+      ws: 8.12.0
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -1919,12 +1919,12 @@ packages:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
     dev: true
 
-  /ws/8.5.0:
-    resolution: {integrity: sha512-BWX0SWVgLPzYwF8lTzEy1egjhS4S4OEAHfsO8o65WOVsrnSRGaSiUaa9e0ggGlkMTtBlmOpEXiie9RUcBO86qg==}
+  /ws/8.12.0:
+    resolution: {integrity: sha512-kU62emKIdKVeEIOIKVegvqpXMSTAMLJozpHZaJNDYqBjzlSYXQGviYwN1osDLJ9av68qHd4a2oSjd7yD4pacig==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
-      utf-8-validate: ^5.0.2
+      utf-8-validate: '>=5.0.2'
     peerDependenciesMeta:
       bufferutil:
         optional: true
