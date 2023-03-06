@@ -6,7 +6,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': 5.54.0
   '@typescript-eslint/parser': 5.54.0
   command-line-args: 5.2.1
-  command-line-usage: 7.0.0
+  command-line-usage: 7.0.1
   eslint: 8.35.0
   eslint-config-prettier: 8.7.0
   eslint-plugin-prettier: 4.2.1
@@ -17,7 +17,7 @@ specifiers:
 
 dependencies:
   command-line-args: 5.2.1
-  command-line-usage: 7.0.0
+  command-line-usage: 7.0.1
   megalodon: 5.4.0
 
 devDependencies:
@@ -477,9 +477,9 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /chalk-template/0.5.0:
-    resolution: {integrity: sha512-r6AUjtuzcj1878vCCAbAqizipEN5zxbQEx1Ug7LcAG+iSOBzOuQnKPXtZJGDPHOyXOblG5/J0md+KY10xqtpVQ==}
-    engines: {node: '>=14.16'}
+  /chalk-template/0.4.0:
+    resolution: {integrity: sha512-/ghrgmhfY8RaSdeo43hNXxpoHAtxdbskUHjPpfqUWGttFgycUhYPGx3YZBCnUCvOa7Doivn1IZec3DEGFoMgLg==}
+    engines: {node: '>=12'}
     dependencies:
       chalk: 4.1.2
     dev: false
@@ -563,12 +563,12 @@ packages:
       typical: 5.2.0
     dev: false
 
-  /command-line-usage/7.0.0:
-    resolution: {integrity: sha512-eUvdaGhQaGBGf/YGrweSHJo5YSqOP5pi38/J0lFLG9abJSNCfLwHL922z+ZTrE+mbGNfR94yTNDWsmZfa0kP7w==}
+  /command-line-usage/7.0.1:
+    resolution: {integrity: sha512-NCyznE//MuTjwi3y84QVUGEOT+P5oto1e1Pk/jFPVdPPfsG03qpTIl3yw6etR+v73d0lXsoojRpvbru2sqePxQ==}
     engines: {node: '>=12.20.0'}
     dependencies:
       array-back: 6.2.2
-      chalk-template: 0.5.0
+      chalk-template: 0.4.0
       table-layout: 3.0.1
       typical: 7.1.1
     dev: false
