@@ -10,7 +10,7 @@ local pipe(arch) = {
       name: 'deps',
       image: 'node',
       commands: [
-        'curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7',
+        'corepack enable && pnpm config set store-dir .cache/pnpm',
         'pnpm i',
       ],
     },
@@ -61,7 +61,7 @@ local release(arch) = {
       name: 'build',
       image: 'node:lts',
       commands: [
-        'curl -L https://pnpm.js.org/pnpm.js | node - add --global pnpm@7',
+        'corepack enable && pnpm config set store-dir .cache/pnpm',
         'pnpm i',
         'pnpm build',
       ],
